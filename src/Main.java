@@ -43,19 +43,11 @@ public class Main {
             for (int distance = oneDayDistance; distance <= deliveryDistance; distance+= perDayDistance) {
                 deliveryTime++;
             }
-            String dayCount;
-            switch (deliveryTime % 10) {
-                case 1:
-                    dayCount = " день";
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                    dayCount = " дня";
-                    break;
-                default:
-                    dayCount = " дней";
-            }
+            String dayCount = switch (deliveryTime % 10) {
+                case 1 -> " день";
+                case 2, 3, 4 -> " дня";
+                default -> " дней";
+            };
             if (deliveryTime / 10 % 10 == 1) {
                 dayCount = " дней";
             }
