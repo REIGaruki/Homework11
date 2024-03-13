@@ -2,9 +2,9 @@ public class Main {
     public static void main(String[] args) {
         int year = 2024;
         isThisYearLeap(year);
-        int clientOS = 3;
-        int clientDeviceYear = 2014;
-        System.out.println(setupInvitation(clientOS, clientDeviceYear));
+        int clientOS = 0; // 0 - iOS, 1 - Android
+        int clientDeviceYear = 2015;
+        printSetupInvitation(clientOS, clientDeviceYear);
     }
     public static void isThisYearLeap(int year) {
         if (year >= 1584 && year % 4 == 0 && year % 100 != 0  || year % 400 == 0) {
@@ -13,7 +13,7 @@ public class Main {
             System.out.println("Год " + year + " не является високосным");
         }
     }
-    public static String setupInvitation(int clientOS, int clientDeviceYear){
+    public static void printSetupInvitation(int clientOS, int clientDeviceYear){
         String system = "Вашего телефона";
         String version = "версию";
         if (clientOS == 0) {
@@ -24,6 +24,6 @@ public class Main {
         if (clientDeviceYear < 2015) {
             version = "облегченную версию";
         }
-        return "Установите " + version + " приложения для " + system + " по ссылке:";
+        System.out.println("Установите " + version + " приложения для " + system + " по ссылке:");
     }
 }
