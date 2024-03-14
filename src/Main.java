@@ -15,7 +15,7 @@ public class Main {
         calculateDeliveryTime(deliveryDistance, oneDayDistance, nextDayDistance, maxDistance);
     }
     public static void isThisYearLeap(int year) {
-        if (year >= 1584 && year % 4 == 0 && year % 100 != 0  || year % 400 == 0) {
+        if (year >= 1584 && (year % 4 == 0 && year % 100 != 0  || year % 400 == 0)) {
             System.out.println("Год " + year + " является високосным");
         } else {
             System.out.println("Год " + year + " не является високосным");
