@@ -4,7 +4,7 @@ public class Main {
         int year = 2024;
         isThisYearLeap(year);
         // задача 2
-        int clientOS = 0; // 0 - iOS, 1 - Android
+        int clientOS = 1; // 0 - iOS, 1 - Android
         int clientDeviceYear = 2015;
         printSetupInvitation(clientOS, clientDeviceYear);
         // задача 3
@@ -22,13 +22,16 @@ public class Main {
         }
     }
     public static void printSetupInvitation(int clientOS, int clientDeviceYear){
-        String system = "Вашего телефона";
-        String version = "версию";
+        String system;
         if (clientOS == 0) {
             system = "iOS";
         } else if (clientOS == 1){
             system = "Android";
+        } else {
+            System.out.println("Операционная система Вашего телефона не поддерживает приложение");
+            return;
         }
+        String version = "версию";
         if (clientDeviceYear < 2015) {
             version = "облегченную версию";
         }
@@ -38,7 +41,7 @@ public class Main {
         int perDayDistance = nextDayDistance - oneDayDistance;
         if (deliveryDistance > maxDistance) {
             System.out.println("Вы находитесь слишком далеко от банка, доставка невозможна");
-        } else if (deliveryDistance >= 0){
+        } else if (deliveryDistance >= 0) {
             int deliveryTime = 1;
             for (int distance = oneDayDistance; distance <= deliveryDistance; distance+= perDayDistance) {
                 deliveryTime++;
